@@ -3,347 +3,578 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Garden Cafe | Where Flavor Meets Ambience</title>
+  <title>B&B - Brew and Brunch | C Scheme, Jaipur</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
-          },
-          colors: {
-            coffee: {
-              50: '#fdf8f6',
-              100: '#f2e8e5',
-              200: '#eaddd7',
-              500: '#9c6644',
-              700: '#7f5539',
-              800: '#582f0e',
-              900: '#3c1e08',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #FAF7F2; color: #162B22; overflow-x: hidden; }
+    .font-display { font-family: 'Montserrat', sans-serif; }
+    .font-serif-custom { font-family: 'Playfair Display', serif; }
+    .glass-header { background: rgba(32, 81, 61, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .hero-gradient { background: linear-gradient(135deg, #20513D 0%, #162B22 100%); }
+  </style>
 </head>
-<body class="bg-coffee-50 text-stone-800 font-sans antialiased">
+<body class="bg-[#FAF7F2] text-[#162B22]">
 
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 bg-coffee-50/90 backdrop-blur-md border-b border-coffee-200">
+  <!-- Top Notification Banner -->
+  <div class="bg-[#F4C430] text-[#162B22] text-xs font-display font-extrabold py-2 px-4 text-center tracking-wider uppercase">
+    ✨ C Scheme, Jaipur's Favorite Brew & Brunch Destination • Open Daily till 12 AM • Call: +91 73406 50765 ✨
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 glass-header text-white border-b border-white/10 shadow-lg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-coffee-800 text-amber-100 flex items-center justify-center font-serif font-bold text-xl">
-          G
+        <div class="w-11 h-11 rounded-full bg-[#F4C430] flex items-center justify-center font-display font-black text-[#162B22] text-xl shadow-md">
+          B&B
         </div>
-        <span class="font-serif font-bold text-xl tracking-wide text-coffee-900">THE GARDEN CAFÉ</span>
+        <div>
+          <span class="font-display font-black tracking-wider text-lg sm:text-xl block leading-tight">B&B CAFE</span>
+          <span class="text-[10px] tracking-widest uppercase text-[#F4C430] font-bold">Brew & Brunch • Jaipur</span>
+        </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-700">
-        <a href="#" class="hover:text-coffee-700 transition">The Garden Cafe</a>
-        <a href="#about" class="hover:text-coffee-700 transition">About Us</a>
-        <a href="#testimonials" class="hover:text-coffee-700 transition">Testimonials</a>
-        <a href="#contact" class="hover:text-coffee-700 transition">Contact Us</a>
+      <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+        <a href="#hero" class="hover:text-[#F4C430] transition">Home</a>
+        <a href="#menu" class="hover:text-[#F4C430] transition">Menu</a>
+        <a href="#about" class="hover:text-[#F4C430] transition">About Us</a>
+        <a href="#reviews" class="hover:text-[#F4C430] transition">Reviews</a>
+        <a href="#contact" class="hover:text-[#F4C430] transition">Location & Hours</a>
       </nav>
 
-      <a href="#location" class="px-5 py-2.5 rounded-full bg-coffee-800 text-white text-sm font-semibold hover:bg-coffee-900 transition shadow-sm">
-        Locate Me
-      </a>
+      <div class="flex items-center gap-3">
+        <a href="#menu" class="bg-[#F4C430] hover:bg-[#E0B020] text-[#162B22] font-display font-black text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md transition transform hover:scale-105">
+          Order Online
+        </a>
+        <button onclick="toggleCart()" class="relative bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition">
+          🛒
+          <span id="cart-badge" class="absolute -top-1 -right-1 bg-[#F4C430] text-[#162B22] font-display font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+  <!-- Hero Section (Matching Reference Design) -->
+  <section id="hero" class="hero-gradient text-white py-16 lg:py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Column: Intro & CTA -->
+        <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-[#F4C430] text-xs font-display font-bold uppercase tracking-widest border border-white/10">
+            ⭐ 4.5 Rated (1.3K+ Google Reviews)
+          </div>
+          <h1 class="font-serif-custom text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+            WHERE FLAVOR <span class="block text-[#F4C430] underline decoration-[#F4C430]/40">MEETS AMBIENCE</span>
+          </h1>
+          <p class="text-white/80 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+            Indulge in C Scheme's finest artisan specialty coffee, luxurious all-day breakfast, handcrafted brunches, and cozy fireplace ambiance.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#menu" class="w-full sm:w-auto bg-[#F4C430] hover:bg-[#E0B020] text-[#162B22] font-display font-black px-8 py-4 rounded-full shadow-xl transition transform hover:scale-105 text-center">
+              Explore Our Menu
+            </a>
+            <a href="#contact" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-display font-bold px-8 py-4 rounded-full border border-white/20 transition text-center">
+              Visit C Scheme, Jaipur
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Cover Image -->
+        <div class="lg:col-span-4 flex justify-center">
+          <div class="relative w-64 sm:w-80 lg:w-full max-w-sm aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/20 bg-[#162B22]">
+            <img src="images/bb-cafe-cover-image.jpg" alt="{ B&B Cafe Cover Image }" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect fill=\'%23143628\' width=\'400\' height=\'500\'/><text fill=\'%23F4C430\' font-size=\'20\' font-family=\'sans-serif\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>{ B&B Cafe Cover Image }</text></svg>'" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#162B22] via-transparent to-transparent opacity-80"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-center">
+              <span class="bg-[#F4C430] text-[#162B22] text-xs font-display font-black px-3 py-1 rounded-full uppercase">B&B Signature Creation</span>
+              <p class="font-serif-custom text-xl font-bold mt-2 text-white">Artisanal Mocha & Brunch Feast</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: 3 Feature Highlights -->
+        <div class="lg:col-span-3 space-y-4">
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition">
+            <span class="text-[#F4C430] text-xl font-bold">☕</span>
+            <h3 class="font-display font-bold text-lg mt-2 text-white">Premium Food & Coffee</h3>
+            <p class="text-white/70 text-xs mt-1">Delight in a menu crafted with finest ingredients for an unparalleled taste.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition">
+            <span class="text-[#F4C430] text-xl font-bold">🌿</span>
+            <h3 class="font-display font-bold text-lg mt-2 text-white">Nice Ambience</h3>
+            <p class="text-white/70 text-xs mt-1">Experience comfort and charm with fireplace warmth in C Scheme, Jaipur.</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition">
+            <span class="text-[#F4C430] text-xl font-bold">✨</span>
+            <h3 class="font-display font-bold text-lg mt-2 text-white">Affordable Price</h3>
+            <p class="text-white/70 text-xs mt-1">Savor quality and flavor that fit perfectly within your budget (₹400–1,400).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Highlights Bar -->
+  <div class="bg-[#F4C430] text-[#162B22] py-3 overflow-hidden font-display font-extrabold text-sm tracking-widest uppercase">
+    <div class="whitespace-nowrap flex justify-around gap-8 animate-marquee">
+      <span>🔥 Fireplace Ambiance</span> • <span>🥞 All You Can Eat Brunch</span> • <span>☕ Specialty Coffee Roasters</span> • <span>✨ Happy-Hour Food & Drinks</span> • <span>📍 O-12 Ashok Marg, C Scheme, Jaipur</span>
+    </div>
+  </div>
+
+  <!-- Dedicated Menu Section -->
+  <section id="menu" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-[#20513D] font-display font-extrabold text-xs tracking-widest uppercase bg-[#20513D]/10 px-3 py-1 rounded-full">B&B Culinary Masterpiece</span>
+      <h2 class="font-serif-custom text-3xl sm:text-5xl font-extrabold text-[#162B22] mt-3">Explore Our Complete Menu</h2>
+      <p class="text-[#162B22]/70 text-sm sm:text-base mt-2">Select between Drinks and Food, filter by category, and add items directly to your table order.</p>
+    </div>
+
+    <!-- Main Section Tabs: Drinks vs Food -->
+    <div class="flex justify-center gap-4 mb-8">
+      <button onclick="switchMainTab('drinks')" id="main-tab-drinks" class="px-8 py-3 rounded-full font-display font-extrabold text-sm transition bg-[#20513D] text-white shadow-lg">
+        ☕ Drinks & Beverages
+      </button>
+      <button onclick="switchMainTab('food')" id="main-tab-food" class="px-8 py-3 rounded-full font-display font-extrabold text-sm transition bg-white text-[#162B22] border border-[#162B22]/20 hover:bg-[#20513D]/5">
+        🥐 Food & Brunch
+      </button>
+    </div>
+
+    <!-- Drinks Sub-Tabs: Hot Drinks vs Cold Drinks -->
+    <div id="drinks-subtabs" class="flex justify-center gap-3 mb-8 flex-wrap">
+      <button onclick="switchDrinkSubTab('hot')" id="drink-sub-hot" class="px-6 py-2 rounded-xl font-display font-bold text-xs uppercase transition bg-[#162B22] text-[#F4C430] shadow">
+        🔥 Hot Drinks
+      </button>
+      <button onclick="switchDrinkSubTab('cold')" id="drink-sub-cold" class="px-6 py-2 rounded-xl font-display font-bold text-xs uppercase transition bg-white text-[#162B22] border border-[#162B22]/20 hover:bg-[#162B22]/5">
+        🧊 Cold Drinks & Shakes
+      </button>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div id="category-filters" class="flex justify-center gap-2 flex-wrap mb-10">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Menu Items Grid -->
+    <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-[#162B22] text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <span class="text-[#F4C430] font-display font-bold text-xs tracking-widest uppercase bg-white/10 px-3 py-1 rounded-full">About B&B Cafe</span>
+          <h2 class="font-serif-custom text-3xl sm:text-5xl font-bold leading-tight">Cozy brunch restaurant featuring specialty coffee & diverse dishes.</h2>
+          <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+            Located in the heart of C Scheme, Jaipur at O-12 Ashok Marg, B&B - Brew and Brunch offers an aesthetically pleasing ambiance with the comforting aroma of freshly baked goods. Whether you are looking for a calm workspace, a cozy brunch date by the fireplace, or extraordinary coffee, our friendly owner and staff ensure an unforgettable experience.
+          </p>
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
+            <div>
+              <span class="font-display font-black text-2xl sm:text-3xl text-[#F4C430]">4.5★</span>
+              <p class="text-xs text-white/70 mt-1">1,321+ Google Reviews</p>
+            </div>
+            <div>
+              <span class="font-display font-black text-2xl sm:text-3xl text-[#F4C430]">₹400+</span>
+              <p class="text-xs text-white/70 mt-1">Average per person</p>
+            </div>
+            <div>
+              <span class="font-display font-black text-2xl sm:text-3xl text-[#F4C430]">12 AM</span>
+              <p class="text-xs text-white/70 mt-1">Open Daily late</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <img src="images/bb-cafe-image-1.jpg" alt="{ B&B Cafe Image 1 }" class="rounded-3xl object-cover w-full h-48 sm:h-64 border border-white/10 shadow-lg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'250\' viewBox=\'0 0 300 250\'><rect fill=\'%2320513D\' width=\'300\' height=\'250\'/><text fill=\'%23F4C430\' font-size=\'14\' font-family=\'sans-serif\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>{ B&B Cafe Image 1 }</text></svg>'" />
+            <img src="images/bb-cafe-image-2.jpg" alt="{ B&B Cafe Image 2 }" class="rounded-3xl object-cover w-full h-36 sm:h-48 border border-white/10 shadow-lg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect fill=\'%2320513D\' width=\'300\' height=\'200\'/><text fill=\'%23F4C430\' font-size=\'14\' font-family=\'sans-serif\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>{ B&B Cafe Image 2 }</text></svg>'" />
+          </div>
+          <div class="space-y-4 pt-8">
+            <img src="images/bb-cafe-image-3.jpg" alt="{ B&B Cafe Image 3 }" class="rounded-3xl object-cover w-full h-36 sm:h-48 border border-white/10 shadow-lg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect fill=\'%2320513D\' width=\'300\' height=\'200\'/><text fill=\'%23F4C430\' font-size=\'14\' font-family=\'sans-serif\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>{ B&B Cafe Image 3 }</text></svg>'" />
+            <img src="images/bb-cafe-image-4.jpg" alt="{ B&B Cafe Image 4 }" class="rounded-3xl object-cover w-full h-48 sm:h-64 border border-white/10 shadow-lg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'250\' viewBox=\'0 0 300 250\'><rect fill=\'%2320513D\' width=\'300\' height=\'250\'/><text fill=\'%23F4C430\' font-size=\'14\' font-family=\'sans-serif\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>{ B&B Cafe Image 4 }</text></svg>'" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Summary Section -->
+  <section id="reviews" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-[#20513D] font-display font-extrabold text-xs tracking-widest uppercase bg-[#20513D]/10 px-3 py-1 rounded-full">Verified Testimonials</span>
+      <h2 class="font-serif-custom text-3xl sm:text-5xl font-extrabold text-[#162B22] mt-3">What Our Guests Say</h2>
+      <p class="text-[#162B22]/70 text-sm sm:text-base mt-2">Based on 1,321+ Google reviews highlighting our cozy ambiance and delicious food.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-[#162B22]/10 flex flex-col justify-between">
+        <div>
+          <div class="flex text-[#F4C430] text-sm mb-3">★★★★★</div>
+          <p class="text-[#162B22]/80 text-sm italic">"Amazing coffee, smoothie bowls, and a wide variety of breakfast and brunch options. The cozy, calm, and aesthetically pleasing ambiance makes it a great spot to relax or work."</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#162B22]/10 flex items-center justify-between">
+          <span class="font-display font-bold text-sm">Aarav Sharma</span>
+          <span class="text-xs text-[#162B22]/50">Google Local Guide</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-[#162B22]/10 flex flex-col justify-between">
+        <div>
+          <div class="flex text-[#F4C430] text-sm mb-3">★★★★★</div>
+          <p class="text-[#162B22]/80 text-sm italic">"They also mention the smell of freshly baked food, the friendly owner and staff. The Lebanese Platter and Cappuccino are absolute must-tries in C Scheme!"</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#162B22]/10 flex items-center justify-between">
+          <span class="font-display font-bold text-sm">Priya Khandelwal</span>
+          <span class="text-xs text-[#162B22]/50">Verified Guest</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-[#162B22]/10 flex flex-col justify-between">
+        <div>
+          <div class="flex text-[#F4C430] text-sm mb-3">★★★★★</div>
+          <p class="text-[#162B22]/80 text-sm italic">"Best brunch restaurant in Jaipur. The fireplace seating and vibe are unmatched. Service is attentive and the coffee is consistently top-notch."</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#162B22]/10 flex items-center justify-between">
+          <span class="font-display font-bold text-sm">Rohan Rathore</span>
+          <span class="text-xs text-[#162B22]/50">Food & Travel Blogger</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Contact Section -->
+  <section id="contact" class="bg-[#20513D] text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <span class="text-[#F4C430] font-display font-bold text-xs tracking-widest uppercase bg-white/10 px-3 py-1 rounded-full">Visit Us</span>
+          <h2 class="font-serif-custom text-3xl sm:text-5xl font-bold">Come Experience B&B in C Scheme, Jaipur</h2>
+          <p class="text-white/80 text-sm sm:text-base">
+            O-12, Ashok Marg, Patrakar Colony, C Scheme, Ashok Nagar, Jaipur, Rajasthan 302001
+          </p>
+          <div class="space-y-3 pt-2">
+            <div class="flex items-center gap-3">
+              <span class="text-[#F4C430]">📞</span>
+              <span class="font-semibold text-sm">+91 73406 50765</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[#F4C430]">🕒</span>
+              <span class="font-semibold text-sm">Open Daily • Closes 12:00 AM (Midnight)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[#F4C430]">✨</span>
+              <span class="font-semibold text-sm">Fireplace • Happy-Hour Food • All You Can Eat</span>
+            </div>
+          </div>
+          <div class="pt-4">
+            <a href="https://maps.google.com/?q=O-12+Ashok+Marg+C+Scheme+Jaipur" target="_blank" class="bg-[#F4C430] hover:bg-[#E0B020] text-[#162B22] font-display font-black px-8 py-3.5 rounded-full shadow-lg transition inline-block">
+              Open in Google Maps 📍
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+          <h3 class="font-display font-bold text-2xl mb-4">Quick Table Reservation / Inquiry</h3>
+          <form onsubmit="handleReservation(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-[#F4C430] uppercase mb-1">Your Name</label>
+              <input type="text" id="res-name" required placeholder="Aarav Sharma" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 text-sm focus:outline-none focus:border-[#F4C430]" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[#F4C430] uppercase mb-1">Phone Number</label>
+              <input type="tel" id="res-phone" required placeholder="+91 98765 43210" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 text-sm focus:outline-none focus:border-[#F4C430]" />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-[#F4C430] uppercase mb-1">Guests</label>
+                <select id="res-guests" class="w-full bg-[#162B22] border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#F4C430]">
+                  <option value="2 Guests">2 Guests</option>
+                  <option value="4 Guests">4 Guests</option>
+                  <option value="6 Guests">6 Guests</option>
+                  <option value="8+ Guests">8+ Guests (Party)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-[#F4C430] uppercase mb-1">Time</label>
+                <input type="time" id="res-time" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#F4C430]" />
+              </div>
+            </div>
+            <button type="submit" class="w-full bg-[#F4C430] hover:bg-[#E0B020] text-[#162B22] font-display font-black py-4 rounded-xl shadow-lg transition mt-2">
+              Confirm Reservation via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#101F18] text-white/70 py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       <div>
-        <span class="inline-block px-4 py-1.5 rounded-full bg-coffee-100 text-coffee-800 text-xs font-bold tracking-widest uppercase mb-6">
-          WHERE Flavor Meets AMBIENCE · 4.7 ★ (316 REVIEWS)
-        </span>
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-coffee-900 leading-tight mb-6">
-          The Garden Cafe
-        </h1>
-        <p class="text-lg text-stone-600 leading-relaxed mb-8 max-w-xl">
-          Relaxed cafe featuring quality food and a pleasant atmosphere. Indulge in delicious veg favorites, Chinese bhel, red pasta, and our signature kulhad & cold coffees (₹1–200 per person).
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#menu" class="px-7 py-3.5 rounded-full bg-coffee-800 text-white font-semibold hover:bg-coffee-900 transition shadow-md">
-            Explore Our Menu
-          </a>
-          <a href="#gallery" class="px-7 py-3.5 rounded-full border border-coffee-700 text-coffee-800 font-semibold hover:bg-coffee-100 transition">
-            Explore Gallery
-          </a>
-        </div>
+        <span class="font-display font-black text-xl text-white block">B&B - BREW AND BRUNCH</span>
+        <p class="text-xs text-white/50 mt-1">O-12, Ashok Marg, C Scheme, Jaipur, Rajasthan 302001</p>
       </div>
-
-      <div class="relative">
-        <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-coffee-200">
-          <img src="the-garden-cafe.jpg" alt="The Garden Cafe Ambience" class="w-full h-full object-cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Highlights / Value Props -->
-  <section id="about" class="py-16 bg-white border-y border-coffee-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="p-8 rounded-2xl bg-coffee-50 border border-coffee-100 hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-coffee-800 text-white flex items-center justify-center mb-5 text-xl">
-            🍽️
-          </div>
-          <h3 class="font-serif text-xl font-bold text-coffee-900 mb-3">Fresh & Quality Food</h3>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            Delight in a menu crafted with fresh and flavorful ingredients, offering great options for veg food lovers.
-          </p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="p-8 rounded-2xl bg-coffee-50 border border-coffee-100 hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-coffee-800 text-white flex items-center justify-center mb-5 text-xl">
-            ✨
-          </div>
-          <h3 class="font-serif text-xl font-bold text-coffee-900 mb-3">Serene Ambience</h3>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            Experience good vibes, comfortable seating, and a homely atmosphere with friendly, polite, and attentive staff.
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="p-8 rounded-2xl bg-coffee-50 border border-coffee-100 hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-coffee-800 text-white flex items-center justify-center mb-5 text-xl">
-            🏷️
-          </div>
-          <h3 class="font-serif text-xl font-bold text-coffee-900 mb-3">Budget-Friendly (₹1–200)</h3>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            Savor quality food, tea, and signature cold coffees at affordable prices that fit perfectly within your budget.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dive Into Our Cafe Feature Banner -->
-  <section class="py-20 bg-coffee-900 text-amber-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-amber-300 uppercase tracking-widest text-xs font-bold mb-3">Dive into The Garden Café</p>
-      <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4">Peak Up Your Café Experience</h2>
-      <p class="text-amber-200/80 text-lg max-w-2xl mx-auto">
-        Savor Rich Bodied Flavor of Our Kulhad Coffee & Signature Blends
-      </p>
-    </div>
-  </section>
-
-  <!-- Customer Favorites / Menu -->
-  <section id="menu" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-900 mb-3">Customer Favorites</h2>
-        <p class="text-stone-600">From Signature Coffees to Delicious Bites – Don't Miss These!</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Item 1 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-coffee-100 shadow-sm hover:shadow-md transition flex flex-col">
-          <img src="the-garden-cafe-1.jpg" alt="Chinese Bhel" class="h-52 w-full object-cover" />
-          <div class="p-6 flex-1 flex flex-col">
-            <span class="text-xs font-bold uppercase tracking-wider text-coffee-700 mb-2">Main Course & Snacks</span>
-            <h3 class="font-serif text-xl font-bold text-coffee-900 mb-2">Chinese Bhel</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">
-              Crispy fried noodles tossed with colorful veggies, aromatic spices, and tangy Indo-Chinese sauces for a burst of flavor.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-coffee-100 shadow-sm hover:shadow-md transition flex flex-col">
-          <img src="the-garden-cafe-2.jpg" alt="Cold Coffee with Ice Cream" class="h-52 w-full object-cover" />
-          <div class="p-6 flex-1 flex flex-col">
-            <span class="text-xs font-bold uppercase tracking-wider text-coffee-700 mb-2">Beverages</span>
-            <h3 class="font-serif text-xl font-bold text-coffee-900 mb-2">Cold Coffee with Ice Cream</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">
-              Rich, creamy blended cold coffee topped with a generous scoop of vanilla ice cream and chocolate drizzle.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-coffee-100 shadow-sm hover:shadow-md transition flex flex-col">
-          <img src="the-garden-cafe-3.jpg" alt="Garden Fresh Veggie Pizza" class="h-52 w-full object-cover" />
-          <div class="p-6 flex-1 flex flex-col">
-            <span class="text-xs font-bold uppercase tracking-wider text-coffee-700 mb-2">Pizza</span>
-            <h3 class="font-serif text-xl font-bold text-coffee-900 mb-2">Garden Fresh Veggie Pizza</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">
-              A delightful veggie pizza topped with fresh bell peppers, mushrooms, olives, and basil on a golden, cheesy crust.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-coffee-100 shadow-sm hover:shadow-md transition flex flex-col">
-          <img src="the-garden-cafe-4.jpg" alt="Red Pasta" class="h-52 w-full object-cover" />
-          <div class="p-6 flex-1 flex flex-col">
-            <span class="text-xs font-bold uppercase tracking-wider text-coffee-700 mb-2">Pasta</span>
-            <h3 class="font-serif text-xl font-bold text-coffee-900 mb-2">Red Pasta</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">
-              Penne tossed in a rich, tangy tomato-herb arrabbiata sauce with fresh veggies, olives, and Italian seasoning.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-coffee-100 shadow-sm hover:shadow-md transition flex flex-col">
-          <img src="the-garden-cafe-5.jpg" alt="Kulhad Coffee" class="h-52 w-full object-cover" />
-          <div class="p-6 flex-1 flex flex-col">
-            <span class="text-xs font-bold uppercase tracking-wider text-coffee-700 mb-2">Beverages</span>
-            <h3 class="font-serif text-xl font-bold text-coffee-900 mb-2">Kulhad Coffee</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">
-              Hot, frothy espresso coffee served in a traditional earthy clay kulhad for an authentic, aromatic experience.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Atmosphere & Gallery Section -->
-  <section id="gallery" class="py-20 bg-white border-t border-coffee-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-coffee-700">Explore Our Gallery</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-900 mt-2 mb-4">
-          Come for the Food, Stay for the Atmosphere
-        </h2>
-        <p class="text-stone-600 leading-relaxed mb-4">
-          At The Garden Cafe, indulge in delicious red pasta, Chinese bhel, fresh pizzas, and refreshing cold coffees, kulhad coffee, and teas. Whatever you're craving, we've got you covered!
-        </p>
-        <p class="text-stone-500 text-sm leading-relaxed">
-          Our serene indoor and cozy outdoor garden spaces offer the perfect ambiance to relax for 30 minutes or spend hours with friends and partners. Whether you're seeking a peaceful corner or a welcoming hangout, we have something for everyone.
-        </p>
-      </div>
-
-      <!-- Gallery Grid (Your 6 Uploaded Photos) -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <img src="the-garden-cafe.jpg" alt="The Garden Cafe View" class="rounded-2xl aspect-square object-cover w-full hover:opacity-95 transition" />
-        <img src="the-garden-cafe-1.jpg" alt="The Garden Cafe Gallery 1" class="rounded-2xl aspect-square object-cover w-full hover:opacity-95 transition" />
-        <img src="the-garden-cafe-2.jpg" alt="The Garden Cafe Gallery 2" class="rounded-2xl aspect-square object-cover w-full hover:opacity-95 transition" />
-        <img src="the-garden-cafe-3.jpg" alt="The Garden Cafe Gallery 3" class="rounded-2xl aspect-square object-cover w-full hover:opacity-95 transition" />
-        <img src="the-garden-cafe-4.jpg" alt="The Garden Cafe Gallery 4" class="rounded-2xl aspect-square object-cover w-full hover:opacity-95 transition" />
-        <img src="the-garden-cafe-5.jpg" alt="The Garden Cafe Gallery 5" class="rounded-2xl aspect-square object-cover w-full hover:opacity-95 transition" />
-      </div>
-
-      <div class="mt-12 grid md:grid-cols-2 gap-6 text-center">
-        <div class="p-6 rounded-2xl bg-coffee-50 border border-coffee-100">
-          <h3 class="font-serif text-xl font-bold text-coffee-900">Immerse in Our Café's Serene & Inviting Atmosphere</h3>
-        </div>
-        <div class="p-6 rounded-2xl bg-coffee-50 border border-coffee-100">
-          <h3 class="font-serif text-xl font-bold text-coffee-900">Celebrate the Exquisite Art of Fine Coffee & Tea Crafting</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="py-20 bg-coffee-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-900 mb-3">Our Smiling Customers (4.7 ★)</h2>
-        <p class="text-stone-600">
-          316+ Google diners share their delightful experiences, highlighting our good vibes, fresh food, and friendly, polite staff.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Review 1 -->
-        <div class="bg-white p-8 rounded-2xl border border-coffee-100 shadow-sm">
-          <div class="text-amber-500 text-lg mb-4">★★★★★</div>
-          <p class="text-stone-700 italic mb-6">
-            "Cold Coffee with Ice Cream, affordable price with comfortable sittings, good food—best place you spend time with your partners."
-          </p>
-          <p class="font-bold text-coffee-900">— Ravi Samariya</p>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="bg-white p-8 rounded-2xl border border-coffee-100 shadow-sm">
-          <div class="text-amber-500 text-lg mb-4">★★★★★</div>
-          <p class="text-stone-700 italic mb-6">
-            "If you’re looking for a place to relax and enjoy a delightful meal in a beautiful setting, this café is a must-visit!"
-          </p>
-          <p class="font-bold text-coffee-900">— Abhishek Sharma</p>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="bg-white p-8 rounded-2xl border border-coffee-100 shadow-sm">
-          <div class="text-amber-500 text-lg mb-4">★★★★★</div>
-          <p class="text-stone-700 italic mb-6">
-            "It’s my favourite place, just feels like home with lovely, homely staff. Good vibes and happiness with decent options for veg food lovers!"
-          </p>
-          <p class="font-bold text-coffee-900">— Dushyant Singh</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer & Contact -->
-  <footer id="contact" class="bg-coffee-900 text-amber-100 pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 pb-12 border-b border-coffee-800">
-      <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-full bg-amber-100 text-coffee-900 flex items-center justify-center font-serif font-bold text-xl">
-            G
-          </div>
-          <span class="font-serif font-bold text-xl text-white">The Garden Cafe</span>
-        </div>
-        <p class="text-amber-200/80 text-sm leading-relaxed">
-          Relaxed cafe featuring quality food and a pleasant atmosphere. Your daily retreat in Jaipur for exceptional coffee, tea, and delightful conversations. Open daily from 10:30 AM.
-        </p>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h4 class="font-serif text-lg font-bold text-white mb-4">Quick Links</h4>
-        <ul class="space-y-2.5 text-sm text-amber-200/80">
-          <li><a href="#" class="hover:text-white transition">Home</a></li>
-          <li><a href="#menu" class="hover:text-white transition">Menu</a></li>
-          <li><a href="#about" class="hover:text-white transition">About Us</a></li>
-          <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact Info -->
-      <div id="location">
-        <h4 class="font-serif text-lg font-bold text-white mb-4">Contact Us</h4>
-        <div class="space-y-3 text-sm text-amber-200/80">
-          <div>
-            <p class="font-semibold text-white">Our Location</p>
-            <p>VQPF+P6W, Swej Farm Rd, S.B. Vihar, Govindpuri, Jaipur, Jaipur Nagar Nigam Area, Rajasthan 302019</p>
-          </div>
-          <div>
-            <p class="font-semibold text-white">Phone Number</p>
-            <a href="tel:+917221811062" class="hover:text-white transition">+91 72218 11062</a>
-          </div>
-          <div>
-            <p class="font-semibold text-white">Hours & Pricing</p>
-            <p>Opens 10:30 AM · ₹1–200 per person</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-amber-200/60 gap-4">
-      <p>© 2026 The Garden Cafe. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition">Terms of Service</a>
+      <div class="text-xs text-white/50">
+        © 2026 B&B Cafe Jaipur. All rights reserved. Designed with artisanal passion.
       </div>
     </div>
   </footer>
 
+  <!-- Slide-over Order Cart Drawer -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
+    <div class="w-full max-w-md bg-[#FAF7F2] h-full shadow-2xl flex flex-col">
+      <div class="bg-[#20513D] text-white p-6 flex items-center justify-between">
+        <div>
+          <h3 class="font-display font-bold text-lg">Your Table Order</h3>
+          <p id="cart-table-label" class="text-xs text-[#F4C430] mt-0.5">Table: General / Walk-in</p>
+        </div>
+        <button onclick="toggleCart()" class="text-white/80 hover:text-white text-xl font-bold">✕</button>
+      </div>
+      
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#162B22]/10">
+        <!-- Cart items populated via JS -->
+      </div>
+
+      <div class="p-6 bg-white border-t border-[#162B22]/10 space-y-3">
+        <div class="flex justify-between font-display font-bold text-lg text-[#162B22]">
+          <span>Total Amount:</span>
+          <span id="cart-total-price">₹0</span>
+        </div>
+        <button onclick="sendWhatsAppOrder()" class="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-display font-black py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+          <span>Send Order on WhatsApp</span>
+          <span class="text-lg">💬</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // URL Table Detection (e.g. ?table=5)
+    const urlParams = new URLSearchParams(window.location.search);
+    const tableNumber = urlParams.get('table') || 'General';
+    if (urlParams.get('table')) {
+      document.getElementById('cart-table-label').innerText = `Table Number: ${tableNumber}`;
+    }
+
+    // Full B&B Menu Database with exact image codes
+    const menuDatabase = {
+      drinks: {
+        hot: [
+          { id: 'h1', name: 'Cappuccino', category: 'White Coffee', price: 189, desc: 'Espresso, steamed milk & foam', img: 'images/drink-hot-cappuccino.jpg', fallback: 'Cappuccino' },
+          { id: 'h2', name: 'Café Latte', category: 'White Coffee', price: 189, desc: 'Espresso & steamed milk', img: 'images/drink-hot-cafe-latte.jpg', fallback: 'Café Latte' },
+          { id: 'h3', name: 'Matcha Latte', category: 'White Coffee', price: 219, desc: 'Matcha powder, steamed milk & foam', img: 'images/drink-hot-matcha-latte.jpg', fallback: 'Matcha Latte' },
+          { id: 'h4', name: 'Flat White', category: 'White Coffee', price: 189, desc: 'Espresso & micro foam', img: 'images/drink-hot-flat-white.jpg', fallback: 'Flat White' },
+          { id: 'h5', name: 'Classic Macchiato', category: 'White Coffee', price: 199, desc: 'Double espresso & milk foam', img: 'images/drink-hot-classic-macchiato.jpg', fallback: 'Classic Macchiato' },
+          { id: 'h6', name: 'Café Mocha', category: 'White Coffee', price: 199, desc: 'Espresso, chocolate & milk', img: 'images/drink-hot-cafe-mocha.jpg', fallback: 'Café Mocha' },
+          { id: 'h7', name: 'Nutellacchino', category: 'White Coffee', price: 339, desc: 'Rich Nutella espresso fusion', img: 'images/drink-hot-nutellacchino.jpg', fallback: 'Nutellacchino' },
+          { id: 'h8', name: 'Biscoffchino', category: 'White Coffee', price: 339, desc: 'Biscoff spread with espresso', img: 'images/drink-hot-biscoffchino.jpg', fallback: 'Biscoffchino' },
+          { id: 'h9', name: 'Espresso', category: 'Black Coffee', price: 99, desc: 'Pure concentrated shot', img: 'images/drink-hot-espresso.jpg', fallback: 'Espresso' },
+          { id: 'h10', name: 'Doppio (Double Espresso)', category: 'Black Coffee', price: 139, desc: 'Double shot espresso', img: 'images/drink-hot-doppio.jpg', fallback: 'Doppio' },
+          { id: 'h11', name: 'Long Black / Americano', category: 'Black Coffee', price: 149, desc: 'Espresso with hot water', img: 'images/drink-hot-americano.jpg', fallback: 'Americano' },
+          { id: 'h12', name: 'Special Irish Coffee', category: 'Black Coffee', price: 199, desc: 'Special brewed Irish flavored coffee', img: 'images/drink-hot-irish-coffee.jpg', fallback: 'Irish Coffee' },
+          { id: 'h13', name: 'V-60 Pour Over', category: 'Manual Brews', price: 169, desc: 'Handcrafted slow drip brew', img: 'images/drink-hot-v60-pourover.jpg', fallback: 'V-60 Pour Over' },
+          { id: 'h14', name: 'Aeropress', category: 'Manual Brews', price: 169, desc: 'Full immersion pressed brew', img: 'images/drink-hot-aeropress.jpg', fallback: 'Aeropress' },
+          { id: 'h15', name: 'French Press', category: 'Manual Brews', price: 179, desc: 'Classic plunger brewed coffee', img: 'images/drink-hot-french-press.jpg', fallback: 'French Press' },
+          { id: 'h16', name: 'Chamomile Tea', category: 'Teas', price: 199, desc: 'Relaxing herbal infusion', img: 'images/drink-hot-chamomile-tea.jpg', fallback: 'Chamomile Tea' }
+        ],
+        cold: [
+          { id: 'c1', name: 'Iced Café Latte', category: 'White Coffee', price: 199, desc: 'Espresso, milk and ice', img: 'images/drink-cold-iced-latte.jpg', fallback: 'Iced Latte' },
+          { id: 'c2', name: 'Iced Matcha Latte', category: 'White Coffee', price: 239, desc: 'Matcha with cold milk & ice', img: 'images/drink-cold-iced-matcha.jpg', fallback: 'Iced Matcha' },
+          { id: 'c3', name: 'Iced Café Mocha', category: 'White Coffee', price: 239, desc: 'Espresso, chocolate, milk & ice', img: 'images/drink-cold-iced-mocha.jpg', fallback: 'Iced Mocha' },
+          { id: 'c4', name: 'B&B Special Ice Cube Latte', category: 'White Coffee', price: 199, desc: 'Coffee ice cubes & cold milk', img: 'images/drink-cold-ice-cube-latte.jpg', fallback: 'Ice Cube Latte' },
+          { id: 'c5', name: 'Affogato', category: 'White Coffee', price: 239, desc: 'Double espresso & vanilla ice cream', img: 'images/drink-cold-affogato.jpg', fallback: 'Affogato' },
+          { id: 'c6', name: 'Signature Cold Brew', category: 'Manual Brews', price: 199, desc: 'Brewing time 24-30 hrs', img: 'images/drink-cold-signature-cold-brew.jpg', fallback: 'Cold Brew' },
+          { id: 'c7', name: 'Vietnamese Drip', category: 'Manual Brews', price: 209, desc: 'Sweetened condensed milk drip', img: 'images/drink-cold-vietnamese-drip.jpg', fallback: 'Vietnamese Drip' },
+          { id: 'c8', name: 'Rum Barrel Cold Brew', category: 'Manual Brews', price: 229, desc: 'Aged barrel cold brew', img: 'images/drink-cold-rum-barrel-cold-brew.jpg', fallback: 'Rum Barrel Brew' },
+          { id: 'c9', name: 'Espresso Tonic', category: 'Coffee Fusions', price: 199, desc: 'Espresso with tonic water', img: 'images/drink-cold-espresso-tonic.jpg', fallback: 'Espresso Tonic' },
+          { id: 'c10', name: 'Coconut Cold Brew', category: 'Coffee Fusions', price: 219, desc: 'Cold brew with coconut water', img: 'images/drink-cold-coconut-cold-brew.jpg', fallback: 'Coconut Cold Brew' },
+          { id: 'c11', name: 'Coffee Berry Blast', category: 'Coffee Fusions', price: 239, desc: 'Mixed berries with espresso', img: 'images/drink-cold-coffee-berry-blast.jpg', fallback: 'Coffee Berry Blast' },
+          { id: 'c12', name: 'Classic Vanilla Shake', category: 'Shakes', price: 199, desc: 'Blended ice cream with vanilla', img: 'images/drink-cold-vanilla-shake.jpg', fallback: 'Vanilla Shake' },
+          { id: 'c13', name: 'Tall Dark Handsome', category: 'Shakes', price: 259, desc: 'Chocolate shake with espresso shot', img: 'images/drink-cold-tall-dark-handsome.jpg', fallback: 'Tall Dark Handsome' },
+          { id: 'c14', name: 'Nutty Nutella Shake', category: 'Shakes', price: 319, desc: 'Rich Nutella blended shake', img: 'images/drink-cold-nutella-shake.jpg', fallback: 'Nutella Shake' },
+          { id: 'c15', name: 'Smooth Monday', category: 'Smoothies', price: 329, desc: 'Almond milk, cocoa, dates & banana', img: 'images/drink-cold-smooth-monday.jpg', fallback: 'Smooth Monday' },
+          { id: 'c16', name: 'Protein Smoothie', category: 'Smoothies', price: 349, desc: 'Almonds, banana, peanut butter & flax', img: 'images/drink-cold-protein-smoothie.jpg', fallback: 'Protein Smoothie' },
+          { id: 'c17', name: 'Orange Mojito', category: 'Mocktails', price: 229, desc: 'Fresh citrus mint mojito', img: 'images/drink-cold-orange-mojito.jpg', fallback: 'Orange Mojito' }
+        ]
+      },
+      food: [
+        { id: 'f1', name: 'Wonder Omelette Meal', category: 'All-Day Breakfast', price: 329, desc: 'Omelette with goat cheese, toasted walnuts & spinach', img: 'images/food-wonder-omelette.jpg', fallback: 'Wonder Omelette' },
+        { id: 'f2', name: 'Big Breakfast', category: 'All-Day Breakfast', price: 379, desc: 'Eggs, feta cheese, mushrooms, tomatoes with toast', img: 'images/food-big-breakfast.jpg', fallback: 'Big Breakfast' },
+        { id: 'f3', name: 'Lebanese Platter', category: 'All-Day Breakfast', price: 439, desc: 'Hummus, falafel, baba ghanoush, pita & beetroot salad', img: 'images/food-lebanese-platter.jpg', fallback: 'Lebanese Platter' },
+        { id: 'f4', name: 'Pesto Scrambled Eggs', category: 'All-Day Breakfast', price: 319, desc: 'Sun-dried eggs, pesto with toast and salad', img: 'images/food-pesto-scrambled-eggs.jpg', fallback: 'Pesto Scrambled' },
+        { id: 'f5', name: 'Smashed Avocado', category: 'All-Day Breakfast', price: 489, desc: 'Smashed avocado, feta cheese, bread balsamic', img: 'images/food-smashed-avocado.jpg', fallback: 'Smashed Avocado' },
+        { id: 'f6', name: 'House Special Brunch Meal', category: 'Brunch Specials', price: 439, desc: 'Sunny side up eggs, roasted tomatoes, sourdough toast', img: 'images/food-house-special-brunch.jpg', fallback: 'House Brunch Meal' },
+        { id: 'f7', name: 'Pancakes Platter', category: 'Brunch Specials', price: 449, desc: 'Fluffy pancakes with fresh fruits, honey & chocolate', img: 'images/food-pancakes-platter.jpg', fallback: 'Pancakes Platter' },
+        { id: 'f8', name: 'Croissant and Coffee', category: 'Brunch Specials', price: 329, desc: 'Buttery fresh croissant with choice of black coffee', img: 'images/food-croissant-and-coffee.jpg', fallback: 'Croissant & Coffee' },
+        { id: 'f9', name: 'Mixed Business Sandwich', category: 'Sandwiches', price: 359, desc: 'Veggies, sun-dried tomatoes with tofu', img: 'images/food-mixed-business-sandwich.jpg', fallback: 'Mixed Business' },
+        { id: 'f10', name: 'Pesto Chicken Sandwich', category: 'Sandwiches', price: 389, desc: 'Chicken marinated in basil pesto with tomatoes', img: 'images/food-pesto-chicken-sandwich.jpg', fallback: 'Pesto Chicken' },
+        { id: 'f11', name: 'Crispy Paneer Wrap', category: 'Wraps & Burgers', price: 339, desc: 'Crispy paneer tikki, lettuce, onion, mint mayo', img: 'images/food-crispy-paneer-wrap.jpg', fallback: 'Paneer Wrap' },
+        { id: 'f12', name: 'Classic Farm Burger', category: 'Wraps & Burgers', price: 389, desc: 'Juicy veggies patty with onion, tomato, cheese', img: 'images/food-burger-classic-farm.jpg', fallback: 'Farm Burger' },
+        { id: 'f13', name: 'Matcha Creamy Croissant', category: 'Croissants', price: 399, desc: 'Filled with choice of matcha or chocolate', img: 'images/food-matcha-creamy-croissant.jpg', fallback: 'Matcha Croissant' },
+        { id: 'f14', name: 'Pink Hummus Open Toast', category: 'Open Toast', price: 349, desc: 'Beetroot hummus spread on sourdough toast', img: 'images/food-toast-pink-hummus.jpg', fallback: 'Pink Hummus Toast' },
+        { id: 'f15', name: 'Spaghetti Marinara', category: 'Pastas', price: 339, desc: 'Served with homemade toasted olive bread', img: 'images/food-pasta-spaghetti-marinara.jpg', fallback: 'Spaghetti Marinara' },
+        { id: 'f16', name: 'Penne Pesto', category: 'Pastas', price: 389, desc: 'Penne with pesto, parmesan with bread', img: 'images/food-pasta-penne-pesto.jpg', fallback: 'Penne Pesto' },
+        { id: 'f17', name: 'Arrabbiata', category: 'Pastas', price: 379, desc: 'Penne served in spicy red sauce', img: 'images/food-pasta-arrabbiata.jpg', fallback: 'Arrabbiata Pasta' },
+        { id: 'f18', name: 'Barbeque Chicken Pizza', category: 'Pizzas', price: 449, desc: 'Smoky BBQ chicken with mozzarella', img: 'images/food-bbq-chicken-pizza.jpg', fallback: 'BBQ Chicken Pizza' },
+        { id: 'f19', name: 'Caesar Salad', category: 'Salads', price: 319, desc: 'Iceberg lettuce, parmesan, croutons', img: 'images/food-salad-caesar.jpg', fallback: 'Caesar Salad' },
+        { id: 'f20', name: 'Berry Blast Bowl', category: 'Smoothie Bowls', price: 390, desc: 'Mix berries, yogurt, honey, granola, banana', img: 'images/food-blueberry-banana-bowl.jpg', fallback: 'Berry Blast Bowl' }
+      ]
+    };
+
+    let currentMainTab = 'drinks';
+    let currentDrinkSub = 'hot';
+    let activeCategory = 'All';
+    let cart = [];
+
+    function switchMainTab(tab) {
+      currentMainTab = tab;
+      activeCategory = 'All';
+      document.getElementById('main-tab-drinks').className = tab === 'drinks' ? 'px-8 py-3 rounded-full font-display font-extrabold text-sm transition bg-[#20513D] text-white shadow-lg' : 'px-8 py-3 rounded-full font-display font-extrabold text-sm transition bg-white text-[#162B22] border border-[#162B22]/20 hover:bg-[#20513D]/5';
+      document.getElementById('main-tab-food').className = tab === 'food' ? 'px-8 py-3 rounded-full font-display font-extrabold text-sm transition bg-[#20513D] text-white shadow-lg' : 'px-8 py-3 rounded-full font-display font-extrabold text-sm transition bg-white text-[#162B22] border border-[#162B22]/20 hover:bg-[#20513D]/5';
+      
+      document.getElementById('drinks-subtabs').style.display = tab === 'drinks' ? 'flex' : 'none';
+      renderMenu();
+    }
+
+    function switchDrinkSubTab(sub) {
+      currentDrinkSub = sub;
+      activeCategory = 'All';
+      document.getElementById('drink-sub-hot').className = sub === 'hot' ? 'px-6 py-2 rounded-xl font-display font-bold text-xs uppercase transition bg-[#162B22] text-[#F4C430] shadow' : 'px-6 py-2 rounded-xl font-display font-bold text-xs uppercase transition bg-white text-[#162B22] border border-[#162B22]/20 hover:bg-[#162B22]/5';
+      document.getElementById('drink-sub-cold').className = sub === 'cold' ? 'px-6 py-2 rounded-xl font-display font-bold text-xs uppercase transition bg-[#162B22] text-[#F4C430] shadow' : 'px-6 py-2 rounded-xl font-display font-bold text-xs uppercase transition bg-white text-[#162B22] border border-[#162B22]/20 hover:bg-[#162B22]/5';
+      renderMenu();
+    }
+
+    function renderMenu() {
+      let items = [];
+      if (currentMainTab === 'drinks') {
+        items = menuDatabase.drinks[currentDrinkSub];
+      } else {
+        items = menuDatabase.food;
+      }
+
+      // Categories
+      const categories = ['All', ...new Set(items.map(i => i.category))];
+      const filtersContainer = document.getElementById('category-filters');
+      filtersContainer.innerHTML = categories.map(cat => `
+        <button onclick="activeCategory='${cat}'; renderMenu();" class="px-4 py-2 rounded-full text-xs font-display font-bold transition ${activeCategory === cat ? 'bg-[#20513D] text-[#F4C430] shadow' : 'bg-white text-[#162B22] border border-[#162B22]/10 hover:bg-[#20513D]/5'}">
+          ${cat}
+        </button>
+      `).join('');
+
+      const filteredItems = activeCategory === 'All' ? items : items.filter(i => i.category === activeCategory);
+
+      const grid = document.getElementById('menu-grid');
+      grid.innerHTML = filteredItems.map(item => `
+        <div class="bg-white rounded-3xl p-5 border border-[#162B22]/10 shadow-md hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-[#20513D]/10 relative">
+              <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'><rect fill=\'%2320513D\' width=\'300\' height=\'200\'/><text fill=\'%23F4C430\' font-size=\'14\' font-family=\'sans-serif\' x=\'50%\' y=\'50%\' text-anchor=\'middle\'>${item.fallback}</text></svg>'" />
+              <span class="absolute top-3 right-3 bg-[#162B22]/80 backdrop-blur-md text-[#F4C430] text-[10px] font-display font-bold px-2.5 py-1 rounded-full uppercase">${item.category}</span>
+            </div>
+            <h3 class="font-display font-extrabold text-lg text-[#162B22]">${item.name}</h3>
+            <p class="text-xs text-[#162B22]/70 mt-1">${item.desc}</p>
+          </div>
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-[#162B22]/10">
+            <span class="font-display font-black text-xl text-[#20513D]">₹${item.price}</span>
+            <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})" class="bg-[#20513D] hover:bg-[#163B2C] text-[#F4C430] font-display font-bold text-xs px-4 py-2.5 rounded-xl shadow transition">
+              + Add to Cart
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(id, name, price) {
+      const existing = cart.find(i => i.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, name, price, qty: 1 });
+      }
+      updateCartUI();
+      toggleCart();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cart-badge');
+      const container = document.getElementById('cart-items-container');
+      const totalEl = document.getElementById('cart-total-price');
+
+      const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+      if (totalCount > 0) {
+        badge.innerText = totalCount;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      if (cart.length === 0) {
+        container.innerHTML = `<p class="text-center text-xs text-[#162B22]/50 py-10">Your cart is currently empty. Explore our menu to add delicious items!</p>`;
+        totalEl.innerText = '₹0';
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="py-3 flex items-center justify-between">
+          <div>
+            <h4 class="font-display font-bold text-sm text-[#162B22]">${item.name}</h4>
+            <p class="text-xs text-[#20513D] font-bold">₹${item.price} × ${item.qty} = ₹${item.price * item.qty}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-[#20513D]/10 hover:bg-[#20513D]/20 text-[#162B22] font-bold flex items-center justify-center">-</button>
+            <span class="font-display font-bold text-sm">${item.qty}</span>
+            <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-[#20513D]/10 hover:bg-[#20513D]/20 text-[#162B22] font-bold flex items-center justify-center">+</button>
+          </div>
+        </div>
+      `).join('');
+
+      const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      totalEl.innerText = `₹${totalPrice}`;
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+      updateCartUI();
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function sendWhatsAppOrder() {
+      if (cart.length === 0) {
+        alert('Please add items to your cart before sending an order.');
+        return;
+      }
+      const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      let message = `Hello B&B Cafe! ☕\n\n*New Table Order*%0A📍 Table: ${tableNumber}%0A--------------------------------%0A`;
+      cart.forEach(i => {
+        message += `• ${i.name} (x${i.qty}) - ₹${i.price * i.qty}%0A`;
+      });
+      message += `--------------------------------%0A*Total Amount: ₹${totalPrice}*%0A%0APlease confirm my order!`;
+
+      window.open(`https://wa.me/917340650765?text=${message}`, '_blank');
+    }
+
+    function handleReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('res-name').value;
+      const phone = document.getElementById('res-phone').value;
+      const guests = document.getElementById('res-guests').value;
+      const time = document.getElementById('res-time').value;
+
+      const message = `Hello B&B Cafe! 🌿%0A*Table Reservation Request*%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A👥 Guests: ${guests}%0A⏰ Time: ${time}%0A%0APlease confirm my table reservation!`;
+      window.open(`https://wa.me/917340650765?text=${message}`, '_blank');
+    }
+
+    // Initialize menu on load
+    renderMenu();
+  </script>
 </body>
 </html>
